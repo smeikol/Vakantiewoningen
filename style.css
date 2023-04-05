@@ -7,7 +7,7 @@
 }
 
 header {
-    background-color: #fff;
+    background-color: #333;
     color: #fff;
     padding: 20px;
     display: flex;
@@ -17,7 +17,13 @@ header {
 
 
 .hero {
-    background-image: url('https://via.placeholder.com/800x400');
+    background-image: linear-gradient(
+        rgba(80, 76, 76, 0.464), 
+        rgba(80, 76, 76, 0.464)
+      ),
+      /* your image */
+      url('images/GetImage.jpeg');
+    background-color: #6959594e;
     background-size: cover;
     color: #fff;
     text-align: center;
@@ -35,8 +41,8 @@ header {
 }
 
 .hero button {
-    background-color: #fff;
-    color: #333;
+    background-color: #333;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -45,7 +51,8 @@ header {
 }
 
 .services {
-    background-color: #f9f9f9;
+    color: #fff;
+    background-color: #333;
     padding: 100px 20px;
     text-align: center;
 }
@@ -63,10 +70,11 @@ header {
 .services li {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    color: #fff;
 }
 
 .about {
-    background-color: #fff;
+    background-color: #333;
 }
 
 
@@ -98,7 +106,7 @@ nav li:hover {
 }
 
 nav a {
-    color: #000000;
+    color: #fff;
     text-decoration: none;
 }
 nav a:hover {
