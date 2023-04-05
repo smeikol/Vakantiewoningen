@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,24 +7,14 @@
 }
 
 header {
-    background-color: #333;
+    background-color: #fff;
     color: #fff;
     padding: 20px;
-}
-
-nav ul {
     display: flex;
-    list-style: none;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
-nav li {
-    margin-right: 20px;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-}
 
 .hero {
     background-image: url('https://via.placeholder.com/800x400');
@@ -76,3 +68,41 @@ nav a {
 .about {
     background-color: #fff;
 }
+
+
+/*Style voor Nav-bar*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky+.hero {
+    padding-top: 60px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-right: 30px;
+}
+
+nav li:hover {
+    margin-right: 30px;
+    transform: scale(1.5);
+    color: #6EB4D1;
+    transition: transform .4s;
+}
+
+nav a {
+    color: #000000;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #6EB4D1;
+    text-decoration: none;
+}
+
