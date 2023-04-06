@@ -15,7 +15,6 @@ header {
     font-family: 'Open Sans', sans-serif;
 }
 
-
 .hero {
     background-image: linear-gradient(
         rgba(80, 76, 76, 0.464), 
@@ -95,11 +94,13 @@ nav ul {
 }
 
 nav li {
-    margin-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+
 }
 
 nav li:hover {
-    margin-right: 30px;
+
     transform: scale(1.5);
     color: #6EB4D1;
     transition: transform .4s;
@@ -108,9 +109,73 @@ nav li:hover {
 nav a {
     color: #fff;
     text-decoration: none;
+
 }
+
 nav a:hover {
     color: #6EB4D1;
     text-decoration: none;
 }
 
+/*Styles voor Contact pagina*/
+footer p {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form h1 {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+#first,
+#second {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#wrapper {
+    width: 500px;
+    border: 1px solid black;
+}
+
+#first {
+    float: right;
+    width: 50%;
+}
+
+#second {
+    float: left;
+    width: 50%;
+}
+
+#input_links{
+    float: right;
+}
+#input_derde{
+    display: flex;
+    margin: 0 auto;
+    width: 346px;
+}
+#textarea{
+    display: flex;
+    margin: 0 auto;
+    width: 346px;
+    resize: none;
+}
