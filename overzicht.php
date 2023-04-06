@@ -8,7 +8,7 @@ $result = $stmt->get_result();
 
 
 while ($row = $result->fetch_array()) {
-    $html[$counter] = '<img src="' . $row["afbeelding1"] . '">';
+    $html[$counter] = '<img src="' . $row["afbeelding1"] . '" height="200px" width="200px">';
     $counter = $counter + 1;
 }
 
