@@ -71,5 +71,6 @@ while ($row = $result->fetch_array()) {
     </script>
 
 </body>
+<?php  include_once "includes/footer.php"?>
 
 </html>

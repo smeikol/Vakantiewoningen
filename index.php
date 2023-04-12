@@ -29,6 +29,8 @@ session_start();
             </section>
         </div>
     </main>
+<?php  include_once "includes/footer.php"?>
+
 </body>
 <script>
     window.onscroll = function() {
