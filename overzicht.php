@@ -27,10 +27,9 @@ if ($result->num_rows == 0) {
 }
 
 while ($row = $result->fetch_array()) {
-    $html[$counter] = '<img onclick="gotodetails(' . $row["woningnummer"] . ')" src="' . $row["afbeelding1"] . '" height="200px" width="200px">';
+    $html[$counter] = '<img class="image" onclick="gotodetails(' . $row["woningnummer"] . ')" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p>';
     $counter = $counter + 1;
 }
-
 
 
 
@@ -44,6 +43,7 @@ while ($row = $result->fetch_array()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/overzicht.css">
     <title>Overzicht | Vakantiewoningen</title>
 </head>
 
@@ -53,7 +53,14 @@ while ($row = $result->fetch_array()) {
 
 
 <?php foreach ($html as $row) {
-        echo $row;
+?>
+    <div class="card">
+
+        <?php echo $row; ?>
+    </div>
+
+
+<?php
     }
     ?>
 
