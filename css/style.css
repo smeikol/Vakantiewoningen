@@ -19,7 +19,7 @@ header {
     background-image: linear-gradient(
             rgba(80, 76, 76, 0.464),
             rgba(80, 76, 76, 0.464)
-    ), url('../images/woning1/hoofd.jpg');
+    ), url('../images/woning 1/hoofd.jpg');
     background-color: #6959594e;
     background-size: cover;
     color: #fff;
@@ -176,4 +176,25 @@ footer p {
     margin: 0 auto;
     width: 346px;
     resize: none;
+}
+
+
+/*-----------[scroll bar]-----------*/
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    border-radius: 10px;
 }
