@@ -17,11 +17,9 @@ header {
 
 .hero {
     background-image: linear-gradient(
-        rgba(80, 76, 76, 0.464), 
-        rgba(80, 76, 76, 0.464)
-      ),
-      /* your image */
-      url('images/woning\ 1/hoofd.jpg');
+            rgba(80, 76, 76, 0.464),
+            rgba(80, 76, 76, 0.464)
+    ), url('../images/woning1/hoofd.jpg');
     background-color: #6959594e;
     background-size: cover;
     color: #fff;

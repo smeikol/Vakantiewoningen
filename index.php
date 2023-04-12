@@ -23,7 +23,6 @@ session_start();
                 <p>We are a company that specializes in providing high-quality products and services to our customers.</p>
                 <button>Learn More</button>
             </section>
-
             <section class="services">
                 <h2>Our Services</h2>
                 <p>Here are some of the services that we offer:</p>
