@@ -27,7 +27,7 @@ if ($result->num_rows == 0) {
 }
 
 while ($row = $result->fetch_array()) {
-    $html[$counter] = '<img class="image" onclick="gotodetails(' . $row["woningnummer"] . ')" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p>';
+    $html[$counter] = '<div class="card" onclick="gotodetails(' . $row["woningnummer"] . ')"> <img class="image" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p>     </div>';
     $counter = $counter + 1;
 }
 
@@ -54,10 +54,10 @@ while ($row = $result->fetch_array()) {
 
 <?php foreach ($html as $row) {
 ?>
-    <div class="card">
+    
 
         <?php echo $row; ?>
-    </div>
+
 
 
 <?php
