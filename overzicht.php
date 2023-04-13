@@ -16,11 +16,11 @@ if (isset($_GET['search'])) {
 $stmt = $conn->prepare($sql);
 
 if (isset($_GET['search'])) {
-    $adr = '%' . $_GET['adres'] . '%';
-    $po = '%' . $_GET['postcode'] . '%';
-    $pl = '%' . $_GET['plaats'] . '%';
-    $prijs = '%' . $_GET['prijs'] . '%';
-    $ver = '%' . $_GET['verkocht'] . '%';
+    $adr = checkempt('adres');
+    $po = checkempt('postcode');
+    $pl = checkempt('plaats');
+    $prijs = checkempt('prijs');
+    $ver = checkempt('verkocht');;
     $stmt->bind_param('sssss', $adr ,$po, $pl, $prijs, $verkocht);
 }
 
@@ -36,7 +36,14 @@ while ($row = $result->fetch_array()) {
     $counter = $counter + 1;
 }
 
-
+function checkempt($needcheck) {
+    if ($_GET[$needcheck] == "") {
+        $returnvalue = "_";
+    } else {
+        $returnvalue = '%' . $_GET[$needcheck] . '%';
+    }
+    return $returnvalue;
+}
 
 ?>
 
