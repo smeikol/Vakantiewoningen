@@ -1,0 +1,50 @@
+* {
+    font-family: "Yu Gothic UI Semibold";
+
+}
+
+.images {
+    background: #eeeff1;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+
+}
+
+img {
+    margin: 10px;
+    border-radius: 7px;
+    box-shadow: #333333;
+}
+
+.info {
+    background: #eeeff1;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.adres {
+    font-size: xx-large;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+span {
+    font-weight: bolder;
+    color: #6EB4D1;
+}
+
+.btnDownload {
+    display: flex;
+    margin: 0 auto;
+    padding: 6px 10px;
+    border-radius: 21px;
+    background: white;
+    cursor: pointer;
+    color: black;
+}
