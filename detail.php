@@ -14,7 +14,7 @@ while ($row = $result->fetch_array()) {
     $html[2] = '<img src="' . $row["afbeelding3"] . '" height="200px" width="200px">';
     $html[3] = '<img src="' . $row["afbeelding4"] . '" height="200px" width="200px">';
     $html[4] = '<img src="' . $row["afbeelding5"] . '" height="200px" width="200px"></div> <br>';
-    $html[5] = '<div class="info"><div class="adres">' . $row['adres'] . '</div> <br>';
+    $html[5] = '<div class="info"><div id="adres" class="adres" >' . $row['adres'] . '</div> <br>';
     $html[6] = '<div class="postcode"><span>postcode: </span>' . $row['postcode'] . '</div> <br>';
     $html[7] = '<div class="plaats"><span>plaats: </span>' . $row['plaats'] . '</div> <br>';
     $html[8] = '<div> <span>De prijs is: </span>€' . $row['prijs'] . '</div> <br>';
@@ -76,6 +76,7 @@ while ($row = $result4->fetch_array()) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>details</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/detail.css">
@@ -83,15 +84,53 @@ while ($row = $result4->fetch_array()) {
 </head>
 
 <body>
-<div class="detail">
-    <?php include_once "includes/header.php" ?>
+    <div id="content">
+        <div class="detail">
+            <?php include_once "includes/header.php" ?>
 
-    <?php foreach ($html as $row) {
-        echo $row;
-    }
-    ?>
-</div>
+            <?php foreach ($html as $row) {
+                echo $row;
+            }
+            ?>
 
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btnDownload" onclick="generatePDF()">Download PDF</button>
+    <br>
 </body>
+
+<script>
+    function generatePDF() {
+
+        let adres = document.getElementById("adres").value;
+
+        const element = document.getElementById('content');
+        const opt = {
+            margin: [-19, 0, 0, 0],
+            filename: 'Vrijwonen.pdf',
+            image: {
+                type: 'jpeg',
+                quality: 1,
+            },
+            html2canvas: {
+                scale: 2,
+                y: 50,
+                x: 50,
+                scrollY: 50,
+                scrollX: 50,
+                windowWidth: 800,
+
+            },
+            jsPDF: {
+                unit: 'px',
+                format: 'a4',
+                orientation: 'p',
+                hotfixes: ['px_scaling']
+            }
+        };
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
 
 </html>
