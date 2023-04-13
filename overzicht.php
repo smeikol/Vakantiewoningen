@@ -3,26 +3,31 @@ include_once 'connection.php';
 $counter = 0;
 $sql = "SELECT `woningnummer`, `adres`, `plaats`, `afbeelding1` FROM `vw_woningen`";
 
-if(isset($_GET['search'])) {
+if (isset($_GET['search'])) {
     $sql = 'SELECT `woningnummer`, `adres`, `plaats`, `afbeelding1` 
     FROM `vw_woningen` 
-    WHERE `adres` LIKE ? OR 
-    `postcode` LIKE ? OR 
-    `plaats` LIKE ? OR 
-    `prijs` LIKE ? OR 
+    WHERE `adres` LIKE ? OR
+    `postcode` LIKE ? OR
+    `plaats` LIKE ? OR
+    `prijs` LIKE ? OR
     `verkocht` LIKE ?';
 }
 
 $stmt = $conn->prepare($sql);
 
-if(isset($_GET['search'])) {
-    $s = '%' . $_GET['search'] . '%';
-    $stmt->bind_param('sssss', $s, $s, $s, $s, $s);
+if (isset($_GET['search'])) {
+    $adr = '%' . $_GET['adres'] . '%';
+    $po = '%' . $_GET['postcode'] . '%';
+    $pl = '%' . $_GET['plaats'] . '%';
+    $prijs = '%' . $_GET['prijs'] . '%';
+    $ver = '%' . $_GET['verkocht'] . '%';
+    $stmt->bind_param('sssss', $adr ,$po, $pl, $prijs, $verkocht);
 }
+
 
 $stmt->execute();
 $result = $stmt->get_result();
-if ($result->num_rows == 0) { 
+if ($result->num_rows == 0) {
     header('Location: overzicht.php');
 }
 
@@ -49,28 +54,43 @@ while ($row = $result->fetch_array()) {
 
 <body>
 
-<?php include_once "includes/header.php"?>
 
 
-<?php foreach ($html as $row) {
-?>
-    
+    <?php include_once "includes/header.php" ?>
+
+    <form action="" method="GET">
+        <label>plaats</label>
+        <input type="text" name="plaats" placeholder="plaats">
+        <label>postcode</label>
+        <input type="text" name="postcode" placeholder="postcode..">
+        <label>adres</label>
+        <input type="text" name="adres" placeholder="adres..">
+        <label>prijs</label>
+        <input type="text" name="prijs" placeholder="prijs..">
+        <label>verkocht</label>
+        <input type="text" name="verkocht" placeholder="verkocht..">
+        <input type="submit" name="search" value="submit" placeholder="Submit">
+    </form>
+
+    <?php foreach ($html as $row) {
+    ?>
+
 
         <?php echo $row; ?>
 
 
 
-<?php
+    <?php
     }
     ?>
 
     <script>
-    function gotodetails(getheader) {
-        window.location.replace("detail.php?woning=" + getheader);
-    } 
+        function gotodetails(getheader) {
+            window.location.replace("detail.php?woning=" + getheader);
+        }
     </script>
 
 </body>
-<?php  include_once "includes/footer.php"?>
+<?php include_once "includes/footer.php" ?>
 
 </html>
