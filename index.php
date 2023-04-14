@@ -24,8 +24,9 @@ session_start();
                 <button></button>
             </section>
             <section class="services">
-                <h2></h2>
                 <p></p>
+                <h3>De website voor uw vakantie woningen!</h3>
+
             </section>
         </div>
     </main>

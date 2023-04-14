@@ -1,6 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+/* Set default font family and color */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Add background color to the header */
+  header {
+    background-color: #fff;
+  }
+  
+  /* Style the logo and navigation links */
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #333;
+  }
+  
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: #aaa;
+  }
+  h3 {
+    text-decoration: underline;
+  }
+  
+  /* Style the hero section */
+  .hero {
+    background-image: url('https://example.com/background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+  }
+  
+  .hero button {
+    font-size: 1.5rem;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero button:hover {
+    background-color: #aaa;
+  }
+  
+  /* Style the services section */
+  .services {
+    background-color: #eee;
+    padding: 50px;
+  }
+  
+  .services h2 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .services p {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+
 * {
+    overflow: hidden;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -52,6 +154,7 @@ header {
     background-color: #333;
     padding: 100px 20px;
     text-align: center;
+    height: 100vh;
 }
 
 .services h2 {
