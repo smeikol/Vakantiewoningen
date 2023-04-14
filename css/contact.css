@@ -1,4 +1,4 @@
-form {
+div {
     background: #eeeff1;
     border-radius: 10px;
     margin: auto;
@@ -6,6 +6,10 @@ form {
     padding: 10px;
 }
 
+.blue {
+    color: #49e1e1;
+    font-weight: bold;
+}
 
 input {
     height: 50px;
@@ -56,5 +60,9 @@ textarea {
     background: cornflowerblue;
 }
 #submitdiv {
+    text-align: center;
+}
+
+div {
     text-align: center;
 }

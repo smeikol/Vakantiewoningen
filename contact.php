@@ -20,24 +20,10 @@
 <div class="form">
     <h1>Contact</h1>
     <br>
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <div id="first">
-            <input type="text" placeholder="Naam">
-        </div>
-        <div id="second">
-            <input type="text" id="input_links" placeholder="Email">
-        </div>
-
-        <div id="derde">
-            <input id="onderwerp" type="text" id="input_derde" placeholder="Onderwerp">
-        </div>
-        <div id="vierde">
-            <textarea rows="4" cols="50" id="textarea" placeholder="Bericht"></textarea>
-        </div>
-        <div id="submitdiv">
-            <input id="submit" type="submit">
-        </div>
-    </form>
+    <div>
+        <p><span class="blue">Telefoon:</span> 202-555-0193</p>
+        <p><span class="blue">Mail:</span> VakantieWoningen@hotmail.com</p>
+    </div>
 </div>
 <?php include_once "includes/footer.php" ?>
 </body>
