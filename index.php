@@ -19,13 +19,13 @@ session_start();
 <main>
         <div class="content">
             <section class="hero">
-                <h1>Welcome to Our Website</h1>
-                <p>We are a company that specializes in providing high-quality products and services to our customers.</p>
-                <button>Learn More</button>
+                <h1>Welkom bij onze Vakantie Woningen</h1>
+                <p>Wij zijn een makelaars bedrijf dat huizen verkoopt van alle soorten en maaten</p>
+                <button></button>
             </section>
             <section class="services">
-                <h2>Our Services</h2>
-                <p>Here are some of the services that we offer:</p>
+                <h2></h2>
+                <p></p>
             </section>
         </div>
     </main>
