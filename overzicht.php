@@ -32,7 +32,7 @@ if ($result->num_rows == 0) {
 }
 
 while ($row = $result->fetch_array()) {
-    $html[$counter] = '<div class="card" onclick="gotodetails(' . $row["woningnummer"] . ')"> <img class="image" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p>     </div>';
+    $html[$counter] = '<div class="card" onclick="gotodetails(' . $row["woningnummer"] . ')"> <img class="image" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p></div>';
     $counter = $counter + 1;
 }
 
@@ -64,7 +64,7 @@ function checkempt($needcheck) {
 
 
     <?php include_once "includes/header.php" ?>
-
+    <div class="row">
 
     <?php foreach ($html as $row) {
     ?>
@@ -77,6 +77,7 @@ function checkempt($needcheck) {
     <?php
     }
     ?>
+    </div>
     <form action="" method="GET">
         <label>plaats</label> <br>
         <input type="text" name="plaats" placeholder="plaats"> <br>

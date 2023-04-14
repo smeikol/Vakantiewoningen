@@ -6,7 +6,8 @@
     border-radius: 10px;
     display: inline-block;
     background: #eeeff1;
-    margin: 15px 15px;
+    margin: 20px 10px 20px 10px;
+
 }
 
 .card:hover {
@@ -46,6 +47,10 @@ input {
     margin: 10px 5px 15px 5px;
     border-radius: 10px;
     border: none;
+    text-align: center;
+}
+::placeholder {
+    text-align: center;
 }
 label {
     font-weight: bold;
@@ -65,4 +70,9 @@ label {
 
 #submit:hover{
     background: cornflowerblue;
+}
+.row {
+    display: flex; /* use flexbox */
+    justify-content: center; /* center the items horizontally */
+    align-items: center; /* center the items vertically */
 }
