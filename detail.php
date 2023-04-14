@@ -17,7 +17,7 @@ while ($row = $result->fetch_array()) {
     $html[5] = '<div class="info"><div id="adres" class="adres" >' . $row['adres'] . '</div> <br>';
     $html[6] = '<div class="postcode"><span>postcode: </span>' . $row['postcode'] . '</div> <br>';
     $html[7] = '<div class="plaats"><span>plaats: </span>' . $row['plaats'] . '</div> <br>';
-    $html[8] = '<div> <span>De prijs is: </span>€' . $row['prijs'] . '</div> <br>';
+    $html[8] = '<div> <span>De prijs is: </span>€' . number_format($row["prijs"],2,",",".") . '</div> <br>';
     $html[9] = '<div> <span>Omschrijving: </span>' . $row['omschrijving'] . '</div> <br>';
     $html[10] = '<div> <span> verkocht: </span> ' . $row['verkocht'] . '</div> <br>';
     $html[11] = '<div> <span>liggingen zijn:</span> </div>     <br>';
