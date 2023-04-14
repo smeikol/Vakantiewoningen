@@ -65,19 +65,6 @@ function checkempt($needcheck) {
 
     <?php include_once "includes/header.php" ?>
 
-    <form action="" method="GET">
-        <label>plaats</label>
-        <input type="text" name="plaats" placeholder="plaats">
-        <label>postcode</label>
-        <input type="text" name="postcode" placeholder="postcode..">
-        <label>adres</label>
-        <input type="text" name="adres" placeholder="adres..">
-        <label>prijs</label>
-        <input type="text" name="prijs" placeholder="prijs..">
-        <label>verkocht</label>
-        <input type="text" name="verkocht" placeholder="verkocht..">
-        <input type="submit" name="search" value="submit" placeholder="Submit">
-    </form>
 
     <?php foreach ($html as $row) {
     ?>
@@ -90,6 +77,19 @@ function checkempt($needcheck) {
     <?php
     }
     ?>
+    <form action="" method="GET">
+        <label>plaats</label> <br>
+        <input type="text" name="plaats" placeholder="plaats"> <br>
+        <label>postcode</label> <br>
+        <input type="text" name="postcode" placeholder="postcode.."> <br>
+        <label>adres</label> <br>
+        <input type="text" name="adres" placeholder="adres.."> <br>
+        <label>prijs</label> <br>
+        <input type="text" name="prijs" placeholder="prijs.."> <br>
+        <label>verkocht</label> <br>
+        <input type="text" name="verkocht" placeholder="verkocht.."> <br>
+        <input id="submit" type="submit" name="search" value="submit" placeholder="Submit"> <br>
+    </form>
 
     <script>
         function gotodetails(getheader) {
