@@ -92,11 +92,10 @@ while ($row = $result4->fetch_array()) {
                 echo $row;
             }
             ?>
-
+            <button type="submit" id="submit" onclick="generatePDF()">Download PDF</button>
         </div>
     </div>
     <br>
-    <button type="submit" class="btnDownload" onclick="generatePDF()">Download PDF</button>
     <br>
 </body>
 
