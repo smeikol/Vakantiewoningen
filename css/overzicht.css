@@ -31,7 +31,7 @@ img {
 form {
 	background: #eeeff1;
 	margin: auto;
-	width: 35%;
+	width: 50%;
 	padding: 10px;
 	border-radius: 10px;
 	margin-top: 20px;
@@ -40,6 +40,7 @@ form {
 input {
 	height: 50px;
 	width: 350px;
+	max-width: 80%;
 	margin: 10px 5px 15px 5px;
 	border-radius: 10px;
 	border: none;
@@ -79,7 +80,20 @@ label {
 	background: cornflowerblue;
 }
 .row {
-	display: flex; /* use flexbox */
-	justify-content: center; /* center the items horizontally */
-	align-items: center; /* center the items vertically */
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+@media screen and (max-width: 568px) {
+	.row {
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	form {
+		width: 90%;
+	}
 }

@@ -13,27 +13,20 @@ session_start();
 </head>
 
 <body>
-<?php include_once "includes/header.php"?>
-
-
-<main>
+    <?php include_once "includes/header.php" ?>
+    <main>
         <div class="content">
             <section class="hero">
                 <h1>Welkom bij onze Vakantie Woningen</h1>
                 <p>Wij zijn een makelaars bedrijf dat huizen verkoopt van alle soorten en maaten</p>
-                <button></button>
             </section>
             <section class="services">
                 <p></p>
                 <h3>De website voor uw vakantie woningen!</h3>
-
             </section>
         </div>
     </main>
-<?php  include_once "includes/footer.php"?>
-
-
-
+    <?php include_once "includes/footer.php" ?>
 </body>
 <script>
     window.onscroll = function() {
@@ -50,7 +43,6 @@ session_start();
             navbar.classList.remove("sticky");
         }
     }
-
 </script>
 
 </html>

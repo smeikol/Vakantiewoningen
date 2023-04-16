@@ -6,6 +6,7 @@ $LIGGINGENLIST = [];
 $WONINGLIST = array();
 $TMPLIST = array();
 $sql = "SELECT `woningnummer`, `adres`, `plaats`, `afbeelding1` FROM `vw_woningen`";
+$EMPTYFILTER = FALSE;
 
 if (isset($_GET['search']) && ($_GET['adres'] || $_GET['postcode'] || $_GET['plaats'] || $_GET['prijs'] || $_GET['verkocht'] || isset($_GET['Eigenschappen']) || isset($_GET['Liggingen']))) {
 
@@ -65,6 +66,7 @@ if (isset($_GET['search']) && ($_GET['adres'] || $_GET['postcode'] || $_GET['pla
                         }
                     }
                 }
+                unset($EIGENSCHAPPENLIST);
                 $EIGENSCHAPPENLIST[] = $TMPLIST;
             } else {
                 while ($ROW = $RESULT->fetch_array()) {
@@ -138,84 +140,32 @@ if (isset($_GET['search']) && ($_GET['adres'] || $_GET['postcode'] || $_GET['pla
             $SQLIDS[] = "?";
         }
     }
-    $query = "SELECT * FROM `vw_woningen`";
+    if ($sql || $IDS) {
+        $query = "SELECT * FROM `vw_woningen`";
 
-    if ($sql) {
-        $query .= ' WHERE ' . implode(' AND ', $sql);
-    } else if (!$sql) {
-        $query .= ' WHERE `woningnummer` in (' . implode(', ', $SQLIDS) . ')';
+        if ($sql) {
+            $query .= ' WHERE ' . implode(' AND ', $sql);
+        } else if (!$sql) {
+            $query .= ' WHERE `woningnummer` in (' . implode(', ', $SQLIDS) . ')';
+        }
+
+        if ($IDS && $sql) {
+            $query .= ' AND `woningnummer` in (' . implode(', ', $SQLIDS) . ')';
+        }
+
+        $stmt = $conn->prepare($query);
+
+        if ($parameters || $IDS) {
+            $stmt->bind_param(str_repeat('s', count($sql)) . str_repeat("i", count($IDS)), ...$parameters, ...$IDS);
+        }
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+    } else {
+        $EMPTYFILTER = TRUE;
     }
 
-    if ($IDS && $sql) {
-        $query .= ' AND `woningnummer` in (' . implode(', ', $SQLIDS) . ')';
-    }
-
-    $stmt = $conn->prepare($query);
-
-    if ($parameters || $IDS) {
-        $stmt->bind_param(str_repeat('s', count($sql)) . str_repeat("i", count($IDS)), ...$parameters, ...$IDS);
-    }
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-
-
-
-
-
-    // $sql = 'SELECT `woningnummer`, `adres`, `plaats`, `afbeelding1` 
-    // FROM `vw_woningen` 
-    // WHERE `adres` LIKE ? OR
-    // `postcode` LIKE ? OR
-    // `plaats` LIKE ? OR
-    // `prijs` LIKE ? OR
-    // `verkocht` LIKE ?';
-    // echo $sql;
-    // $stmt = $conn->prepare($sql);
-    // $adr = checkempt('adres');
-    // $po = checkempt('postcode');
-    // $pl = checkempt('plaats');
-    // $prijs = checkempt('prijs');
-    // $ver = checkempt('verkocht');
-    // $stmt->bind_param('sssss', $adr, $po, $pl, $prijs, $ver);
-    // $stmt->execute();
-    // $result = $stmt->get_result();
-
-    // if ($result->num_rows == 0 && !isset($_GET['Eigenschappen'])) {
-    //     header('Location: overzicht.php');
-    // }
-
-    // if (isset($_GET['Eigenschappen'])) {
-    //     foreach ($_GET['Eigenschappen'] as $key) {
-    //         $stmt = $conn->prepare("SELECT * FROM `vw_eigenschappen` WHERE `VW_eigenschappen_id` = ?");
-
-    //         $RESULT = $stmt->bind_param("i", $key);
-    //         if ($RESULT == false) {
-    //             die("Secured");
-    //         }
-
-    //         $RESULT = $stmt->execute();
-    //         if ($RESULT == false) {
-    //             die("Secured");
-    //         }
-
-    //         $RESULT = $stmt->get_result();
-    //         if (isset($WONINGLIST[0])) {
-    //             while ($ROW = $RESULT->fetch_array()) {
-    //                 for ($i = 0; $i < count($WONINGLIST); $i++) {
-    //                     if ($WONINGLIST[$i] == $ROW['VW_woningen_woningnummer']) {
-    //                         $TMPLIST[] += $ROW['VW_woningen_woningnummer'];
-    //                     }
-    //                 }
-    //             }
-    //             $WONINGLIST = $TMPLIST;
-    //         } else {
-    //             while ($ROW = $RESULT->fetch_array()) {
-    //                 $WONINGLIST[] += $ROW['VW_woningen_woningnummer'];
-    //             }
-    //         }
-    //     }
-    // }
     $stmt->close();
 } else {
     $sql = "SELECT `woningnummer`, `adres`, `plaats`, `afbeelding1` FROM `vw_woningen`";
@@ -224,10 +174,11 @@ if (isset($_GET['search']) && ($_GET['adres'] || $_GET['postcode'] || $_GET['pla
     $result = $stmt->get_result();
 }
 
-
-while ($row = $result->fetch_array()) {
-    $html[$counter] = '<div class="card" onclick="gotodetails(' . $row["woningnummer"] . ')"> <img class="image" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p></div>';
-    $counter = $counter + 1;
+if ($EMPTYFILTER == FALSE) {
+    while ($row = $result->fetch_array()) {
+        $html[$counter] = '<div class="card" onclick="gotodetails(' . $row["woningnummer"] . ')"> <img class="image" src="' . $row["afbeelding1"] . '" height="225px" width="225px"> <p class="card-text">' . $row["adres"] . ' </p>  <p class="card-text">' . $row["plaats"] . ' </p></div>';
+        $counter = $counter + 1;
+    }
 }
 
 function checkempt($needcheck)
@@ -281,20 +232,14 @@ $stmt->close();
 </head>
 
 <body>
-
-
-
     <?php include_once "includes/header.php" ?>
     <div class="row">
-
-        <?php foreach ($html as $row) {
-        ?>
-
-
-            <?php echo $row; ?>
-
-
-
+        <?php if (isset($html) && $EMPTYFILTER == FALSE) {
+            foreach ($html as $row) {
+                echo $row;
+            }
+        } else { ?>
+            <p>Er zijn geen vakantie woningen met de door uw geselecteerde filters</p>
         <?php
         }
         ?>
@@ -312,7 +257,7 @@ $stmt->close();
         <input type="text" name="verkocht" placeholder="verkocht.."> <br>
         <input id="submit" type="submit" name="search" value="submit" placeholder="Submit">
         <br>
-        <label>Eigenschappen</label>
+        <h2>Eigenschappen</h2>
         <br>
         <div class="formFooter">
             <?php $COUNT = 1;
@@ -325,7 +270,7 @@ $stmt->close();
             endwhile ?>
         </div>
         <br>
-        <label>Liggingen</label>
+        <h2>Liggingen</h2>
         <br>
         <div class="formFooter">
             <?php $COUNT = 1;

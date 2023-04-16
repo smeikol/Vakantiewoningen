@@ -1,54 +1,69 @@
 * {
-    font-family: "Yu Gothic UI Semibold";
-
+	font-family: "Yu Gothic UI Semibold";
 }
 
 .images {
-    background: #eeeff1;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    margin-top: 20px;
-    border-radius: 10px;
-
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background: #eeeff1;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 10px;
 }
 
 img {
-    margin: 10px;
-    border-radius: 7px;
-    box-shadow: #333333;
+	margin: 10px;
+	border-radius: 7px;
+	box-shadow: #333333;
 }
 
 .info {
-    background: #eeeff1;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-    border-radius: 10px;
+	background: #eeeff1;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 .adres {
-    font-size: xx-large;
-    margin: auto;
-    width: 60%;
-    padding: 10px;
+	font-size: xx-large;
+	margin: auto;
+	padding: 10px;
+	text-align: center;
 }
 span {
-    font-weight: bolder;
-    color: #6EB4D1;
+	font-weight: bolder;
+	color: #6eb4d1;
 }
 
 #submit {
-    background-color: #6EB4D1;
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+	background-color: #6eb4d1;
+	border: none;
+	color: white;
+	font-weight: bold;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
 }
 
-#submit:hover{
-    background: cornflowerblue;
+#submit:hover {
+	background: cornflowerblue;
+}
+
+@media screen and (max-width: 768px) {
+	.form {
+		width: 90%;
+	}
+
+	.info {
+		width: 90%;
+	}
+
+	.images {
+		width: 90%;
+	}
 }

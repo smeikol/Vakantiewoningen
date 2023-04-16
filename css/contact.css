@@ -1,68 +1,71 @@
 div {
-    background: #eeeff1;
-    border-radius: 10px;
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+	background: #eeeff1;
+	border-radius: 10px;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
 }
 
 .blue {
-    color: #49e1e1;
-    font-weight: bold;
+	color: #49e1e1;
+	font-weight: bold;
+}
+
+.form div {
+	width: auto;
 }
 
 input {
-    height: 50px;
-    width: 350px;
-    margin: 10px 5px 15px 5px;
-    border-radius: 10px;
-    border: none;
+	height: 50px;
+	width: 350px;
+	margin: 10px 5px 15px 5px;
+	border-radius: 10px;
+	border: none;
 }
 
 ::placeholder {
-    font-family: "Yu Gothic UI Semibold";
-    text-align: center;
+	font-family: "Yu Gothic UI Semibold";
+	text-align: center;
 }
 
 #onderwerp {
-    width: 710px !important;
-
+	width: 710px !important;
 }
 #derde {
-    text-align: center;
+	text-align: center;
 }
 
 textarea {
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    width: 710px !important;
-    height: 220px;
-    left: 30px;
-    right: 30px;
-    top: 30px;
-    bottom: 30px;
-    border-radius: 10px;
-    border: none;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	width: 710px !important;
+	height: 220px;
+	left: 30px;
+	right: 30px;
+	top: 30px;
+	bottom: 30px;
+	border-radius: 10px;
+	border: none;
 }
 
 #submit {
-    background-color: #6EB4D1;
-    border: none;
-    color: white;
-    font-weight: bold;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
+	background-color: #6eb4d1;
+	border: none;
+	color: white;
+	font-weight: bold;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
 }
 
-#submit:hover{
-    background: cornflowerblue;
+#submit:hover {
+	background: cornflowerblue;
 }
 #submitdiv {
-    text-align: center;
+	text-align: center;
 }
 
 div {
-    text-align: center;
+	text-align: center;
 }

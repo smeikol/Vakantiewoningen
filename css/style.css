@@ -225,6 +225,10 @@ footer #fixedFooter {
 	position: fixed;
 }
 
+footer #placeholderFooter {
+	opacity: 0;
+}
+
 .form h1 {
 	text-align: center;
 	font-family: "Open Sans", sans-serif;
@@ -293,4 +297,28 @@ footer #fixedFooter {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 	border-radius: 10px;
+}
+
+@media screen and (max-width: 568px) {
+	.form {
+		width: 90%;
+	}
+
+	.info {
+		width: 90%;
+	}
+
+	.images {
+		width: 90%;
+	}
+
+	.formFooter label {
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	form {
+		width: 90%;
+	}
 }

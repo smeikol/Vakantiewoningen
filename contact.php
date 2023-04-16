@@ -11,21 +11,16 @@
 </head>
 
 <body>
-<?php include_once "includes/header.php" ?>
-
-<main>
-
-</main>
-<br>
-<div class="form">
-    <h1>Contact</h1>
-    <br>
-    <div>
-        <p><span class="blue">Telefoon:</span> 202-555-0193</p>
-        <p><span class="blue">Mail:</span> VakantieWoningen@hotmail.com</p>
+    <?php include_once "includes/header.php" ?>
+    <div class="form">
+        <h1>Contact</h1>
+        <br>
+        <div>
+            <p><span class="blue">Telefoon:</span> 202-555-0193</p>
+            <p><span class="blue">Mail:</span> VakantieWoningen@hotmail.com</p>
+        </div>
     </div>
-</div>
-<?php include_once "includes/footer.php" ?>
+    <?php include_once "includes/footer.php" ?>
 </body>
 
 </html>
