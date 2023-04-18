@@ -18,10 +18,9 @@ session_start();
         <div class="content">
             <section class="hero">
                 <h1>Welkom bij onze Vakantie Woningen</h1>
-                <p>Wij zijn een makelaars bedrijf dat huizen verkoopt van alle soorten en maaten</p>
+                <p>Wij zijn een makelaarsbedrijf dat huizen verkoopt van alle soorten en maten</p>
             </section>
             <section class="services">
-                <p></p>
                 <h3>De website voor uw vakantie woningen!</h3>
             </section>
         </div>
